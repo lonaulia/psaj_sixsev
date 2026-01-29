@@ -1,16 +1,17 @@
-/* Reset dasar untuk menghilangkan margin dan padding default browser, memastikan konsistensi */
+/* style.css */
+
+/* Reset and Basic Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Mengatur font dasar menggunakan Poppins dari Google Fonts, dengan fallback sans-serif */
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
-    color: #f4f4f4; /* Warna teks terang untuk kontras dengan background gelap */
-    background-color: #121212; /* Background gelap utama untuk tema gelap */
+    color: #f0f0f0; /* Light text for dark theme */
+    background-color: #121212; /* Dark background */
     animation: fadeIn 1s ease-in-out; /* Animasi fade-in untuk seluruh body saat halaman load */
 }
 
@@ -24,14 +25,21 @@ body {
     }
 }
 
-/* Styling untuk header, membuatnya sticky agar navigasi tetap di atas saat scroll */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header and Navigation */
 header {
-    position: sticky;
+    position: fixed;
     top: 0;
+    width: 100%;
+    background-color: rgba(26, 26, 26, 0.9); /* Dark semi-transparent */
+    backdrop-filter: blur(10px);
     z-index: 1000;
-    background-color: #1a1a1a; /* Background gelap untuk header */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Bayangan untuk efek modern */
-    animation: slideDown 0.8s ease-out; /* Animasi slide down untuk header saat muncul */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    animation: slideDown 0.8s ease-out; /* Animasi slide-down untuk header saat muncul */
 }
 
 /* Keyframe untuk animasi slide-down, membuat header turun dari atas */
@@ -46,26 +54,24 @@ header {
     }
 }
 
-/* Styling untuk navigasi, menggunakan flexbox untuk layout horizontal */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    max-width: 1200px; /* Lebar maksimal untuk responsivitas */
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Styling untuk logo, dengan span untuk aksen warna kuning gelap */
 .logo {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #f4f4f4;
+    color: #f0f0f0;
     animation: bounceIn 1s ease-out 0.5s both; /* Animasi bounce-in untuk logo dengan delay */
 }
 
 .logo span {
-    color: #DAA520; /* Warna kuning gelap sebagai aksen */
+    color: #B8860B; /* Dark yellow accent */
 }
 
 /* Keyframe untuk animasi bounce-in, membuat elemen muncul dengan efek bounce */
@@ -86,27 +92,22 @@ nav {
     }
 }
 
-/* Styling untuk daftar link navigasi, menggunakan flexbox untuk horizontal */
 .nav-links {
-    display: flex;
     list-style: none;
+    display: flex;
+    gap: 2rem;
 }
 
-.nav-links li {
-    margin-left: 2rem;
-    animation: fadeInUp 0.8s ease-out 0.7s both; /* Animasi fade-in dari bawah untuk setiap link dengan delay */
-}
-
-.nav-links a {
-    color: #f4f4f4;
-    text-decoration: none;
+.nav-links li a {
     font-weight: 400;
-    transition: color 0.3s ease, transform 0.3s ease; /* Transisi halus untuk hover, tambah transform */
+    color: #f0f0f0;
+    transition: color 0.3s, transform 0.3s ease; /* Tambah transform untuk animasi hover */
+    animation: fadeInUp 0.8s ease-out 0.7s both; /* Animasi fade-in dari bawah untuk link dengan delay */
 }
 
-.nav-links a:hover {
-    color: #DAA520; /* Hover dengan warna kuning gelap */
-    transform: scale(1.1); /* Efek scale pada hover untuk interaktivitas */
+.nav-links li a:hover {
+    color: #B8860B; /* Dark yellow on hover */
+    transform: scale(1.1); /* Efek scale pada hover */
 }
 
 /* Keyframe untuk animasi fade-in dari bawah */
@@ -121,13 +122,286 @@ nav {
     }
 }
 
-/* Styling untuk bagian hero, menggunakan background image atau gradient untuk efek modern */
+/* Hero Section */
 .hero-kelompok {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%); /* Gradient gelap untuk background */
-    height: 100vh; /* Tinggi penuh viewport */
+    height: 100vh;
+    background: url('img/hero-bg.jpg') no-repeat center center/cover; /* Replace with actual background image */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    color: #f0f0f0;
     position: relative;
-    animation: fadeIn 1.5s ease-in-out 1s both; /* Animasi fade-in untuk
+    animation: fadeIn 1.5s ease-in-out 1s both; /* Animasi fade-in untuk hero dengan delay */
+}
+
+.hero-overlay {
+    background-color: rgba(0, 0, 0, 0.7); /* Darker overlay */
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 600px;
+    animation: slideUp 1s ease-out 1.2s both; /* Animasi slide-up untuk overlay */
+}
+
+.hero-kelompok h1 {
+    font-size: 3rem;
+    margin: 1rem 0;
+    font-weight: 600;
+    color: #B8860B; /* Dark yellow heading */
+    animation: fadeInRight 0.8s ease-out 1.5s both; /* Animasi fade-in dari kanan untuk judul */
+}
+
+.hero-kelompok p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #f0f0f0;
+    animation: fadeInLeft 0.8s ease-out 1.7s both; /* Animasi fade-in dari kiri untuk paragraf */
+}
+
+.btn-cek {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #B8860B; /* Dark yellow button */
+    color: #121212; /* Dark text on button */
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s ease; /* Tambah transform untuk animasi hover */
+    animation: pulse 2s infinite; /* Animasi pulse untuk menarik perhatian */
+}
+
+.btn-cek:hover {
+    background-color: #DAA520; /* Lighter dark yellow on hover */
+    transform: scale(1.05); /* Efek scale pada hover */
+}
+
+/* Keyframe untuk animasi slide-up */
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Keyframe untuk animasi fade-in dari kanan */
+@keyframes fadeInRight {
+    from {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Keyframe untuk animasi fade-in dari kiri */
+@keyframes fadeInLeft {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Keyframe untuk animasi pulse, membuat tombol "bernapas" */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Section Containers */
+.section-container {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    animation: fadeInUp 1s ease-out both; /* Animasi fade-in dari bawah untuk setiap section */
+}
+
+.bg-light {
+    background-color: #1a1a1a; /* Dark background for sections */
+}
+
+.bg-white {
+    background-color: #2a2a2a; /* Slightly lighter dark for contrast */
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    color: #B8860B; /* Dark yellow titles */
+    animation: fadeInDown 0.8s ease-out both; /* Animasi fade-in dari atas untuk judul */
+}
+
+/* Keyframe untuk animasi fade-in dari atas */
+@keyframes fadeInDown {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Kelompok Section */
+.kelompok-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.kelompok-card {
+    background-color: #2a2a2a; /* Dark card background */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s; /* Transisi untuk hover */
+    animation: zoomIn 0.6s ease-out both; /* Animasi zoom-in untuk kartu */
+}
+
+.kelompok-card:hover {
+    transform: translateY(-5px) scale(1.05); /* Efek lift dan scale pada hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+}
+
+/* Keyframe untuk animasi zoom-in */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.card-img img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease; /* Transisi untuk gambar */
+}
+
+.card-img img:hover {
+    transform: scale(1.1); /* Efek zoom pada gambar saat hover kartu */
+}
+
+.card-info {
+    padding: 1rem;
+    text-align: center;
+}
+
+.card-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #f0f0f0;
+}
+
+.card-info p {
+    color: #cccccc; /* Light gray for secondary text */
+}
+
+/* Laporan Section */
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pdf-container {
+    width: 100%;
+    max-width: 800px;
+    height: 600px;
+    border: 1px solid #444; /* Dark border */
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    animation: fadeIn 1s ease-out both; /* Animasi fade-in untuk container PDF */
+}
+
+.content-desc {
+    text-align: center;
+    color: #f0f0f0;
+}
+
+/* Video Section */
+.video-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.video-container {
+    width: 100%;
+    max-width: 800px;
+    height: 450px;
+    border: 1px solid #444; /* Dark border */
+    border-radius: 10px;
+    overflow: hidden;
+    animation: fadeIn 1s ease-out both; /* Animasi fade-in untuk container video */
+}
+
+.video-desc {
+    text-align: center;
+    margin-top: 1rem;
+    color: #f0f0f0;
+}
+
+/* Footer */
+footer {
+    background-color: #1a1a1a; /* Dark footer */
+    color: #f0f0f0;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    animation: fadeInUp 1s ease-out both; /* Animasi fade-in dari bawah untuk footer */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .nav-links {
+        margin-top: 1rem;
+        gap: 1rem;
+    }
+
+    .hero-kelompok h1 {
+        font-size: 2rem;
+    }
+
+    .hero-kelompok p {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .kelompok-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pdf-container, .video-container {
+        height: 300px;
+    }
+}
