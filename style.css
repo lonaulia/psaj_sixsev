@@ -1,164 +1,176 @@
-/* style.css */
-
-/* Reset and Basic Styles */
+/* Reset dasar untuk menghilangkan margin dan padding default browser, memastikan konsistensi */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Mengatur font dasar menggunakan Poppins dari Google Fonts, dengan fallback sans-serif */
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
-    color: #f0f0f0; /* Light text for dark theme */
-    background-color: #121212; /* Dark background */
+    color: #f4f4f4; /* Warna teks terang untuk kontras dengan background gelap */
+    background-color: #121212; /* Background gelap utama untuk tema gelap */
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-/* Header and Navigation */
+/* Styling untuk header, membuatnya sticky agar navigasi tetap di atas saat scroll */
 header {
-    position: fixed;
+    position: sticky;
     top: 0;
-    width: 100%;
-    background-color: rgba(26, 26, 26, 0.9); /* Dark semi-transparent */
-    backdrop-filter: blur(10px);
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    background-color: #1a1a1a; /* Background gelap untuk header */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Bayangan untuk efek modern */
 }
 
+/* Styling untuk navigasi, menggunakan flexbox untuk layout horizontal */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    max-width: 1200px;
+    max-width: 1200px; /* Lebar maksimal untuk responsivitas */
     margin: 0 auto;
 }
 
+/* Styling untuk logo, dengan span untuk aksen warna kuning gelap */
 .logo {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #f0f0f0;
+    color: #f4f4f4;
 }
 
 .logo span {
-    color: #B8860B; /* Dark yellow accent */
+    color: #DAA520; /* Warna kuning gelap sebagai aksen */
 }
 
+/* Styling untuk daftar link navigasi, menggunakan flexbox untuk horizontal */
 .nav-links {
-    list-style: none;
     display: flex;
-    gap: 2rem;
+    list-style: none;
 }
 
-.nav-links li a {
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    color: #f4f4f4;
+    text-decoration: none;
     font-weight: 400;
-    color: #f0f0f0;
-    transition: color 0.3s;
+    transition: color 0.3s ease; /* Transisi halus untuk hover */
 }
 
-.nav-links li a:hover {
-    color: #B8860B; /* Dark yellow on hover */
+.nav-links a:hover {
+    color: #DAA520; /* Hover dengan warna kuning gelap */
 }
 
-/* Hero Section */
+/* Styling untuk bagian hero, menggunakan background image atau gradient untuk efek modern */
 .hero-kelompok {
-    height: 100vh;
-    background: url('img/hero-bg.jpg') no-repeat center center/cover; /* Replace with actual background image */
+    background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%); /* Gradient gelap untuk background */
+    height: 100vh; /* Tinggi penuh viewport */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: #f0f0f0;
     position: relative;
 }
 
+/* Overlay untuk hero, menambahkan transparansi untuk teks lebih mudah dibaca */
 .hero-overlay {
-    background-color: rgba(0, 0, 0, 0.7); /* Darker overlay */
+    background: rgba(0, 0, 0, 0.5); /* Overlay semi-transparan */
     padding: 2rem;
     border-radius: 10px;
     max-width: 600px;
 }
 
-.hero-kelompok h1 {
+.hero-overlay p:first-child {
+    font-size: 1.2rem;
+    color: #DAA520; /* Aksen kuning gelap */
+}
+
+.hero-overlay h1 {
     font-size: 3rem;
     margin: 1rem 0;
-    font-weight: 600;
-    color: #B8860B; /* Dark yellow heading */
+    color: #f4f4f4;
 }
 
-.hero-kelompok p {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    color: #f0f0f0;
+.hero-overlay p:nth-child(3) {
+    font-size: 1rem;
+    margin-bottom: 2rem;
 }
 
-.btn-cek {
-    display: inline-block;
+/* Styling untuk tombol di hero */
+.hero-buttons .btn-cek {
+    background-color: #DAA520; /* Background kuning gelap */
+    color: #121212; /* Teks gelap untuk kontras */
     padding: 0.75rem 1.5rem;
-    background-color: #B8860B; /* Dark yellow button */
-    color: #121212; /* Dark text on button */
+    text-decoration: none;
     border-radius: 5px;
-    transition: background-color 0.3s;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
 }
 
-.btn-cek:hover {
-    background-color: #DAA520; /* Lighter dark yellow on hover */
+.hero-buttons .btn-cek:hover {
+    background-color: #B8860B; /* Hover lebih gelap */
 }
 
-/* Section Containers */
+/* Styling umum untuk section container, dengan padding dan max-width untuk responsivitas */
 .section-container {
     padding: 4rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
 }
 
+/* Background alternatif untuk section, bg-light adalah abu-abu gelap */
 .bg-light {
-    background-color: #1a1a1a; /* Dark background for sections */
+    background-color: #1e1e1e;
 }
 
 .bg-white {
-    background-color: #2a2a2a; /* Slightly lighter dark for contrast */
+    background-color: #2a2a2a; /* Lebih gelap dari putih untuk tema gelap */
 }
 
+/* Styling untuk judul section */
 .section-title {
-    text-align: center;
     font-size: 2.5rem;
+    text-align: center;
     margin-bottom: 2rem;
-    font-weight: 600;
-    color: #B8860B; /* Dark yellow titles */
+    color: #f4f4f4;
 }
 
-/* Kelompok Section */
+/* Styling untuk grid anggota kelompok, menggunakan grid untuk kartu sejajar */
 .kelompok-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsif, kartu sejajar */
     gap: 2rem;
+    justify-items: center;
 }
 
+/* Styling untuk kartu anggota, dengan efek hover untuk interaktivitas */
 .kelompok-card {
-    background-color: #2a2a2a; /* Dark card background */
+    background-color: #2c2c2c;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
 .kelompok-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+    transform: translateY(-5px); /* Efek lift pada hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
 }
 
+/* Styling untuk gambar di kartu */
 .card-img img {
     width: 100%;
     height: 200px;
     object-fit: cover;
 }
 
+/* Styling untuk info di kartu */
 .card-info {
     padding: 1rem;
     text-align: center;
@@ -167,94 +179,108 @@ nav {
 .card-info h3 {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
-    color: #f0f0f0;
+    color: #f4f4f4;
 }
 
 .card-info p {
-    color: #cccccc; /* Light gray for secondary text */
+    color: #DAA520; /* Aksen kuning gelap */
 }
 
-/* Laporan Section */
+/* Styling untuk wrapper konten di section makalah */
 .content-wrapper {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
 }
 
+/* Styling untuk container PDF, menggunakan iframe responsif */
 .pdf-container {
     width: 100%;
     max-width: 800px;
     height: 600px;
-    border: 1px solid #444; /* Dark border */
     border-radius: 10px;
     overflow: hidden;
-    margin-bottom: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
+.pdf-container iframe {
+    border: none;
+}
+
+/* Styling untuk deskripsi di makalah */
 .content-desc {
     text-align: center;
-    color: #f0f0f0;
 }
 
-/* Video Section */
+.content-desc p {
+    margin-bottom: 1rem;
+    color: #f4f4f4;
+}
+
+/* Styling untuk wrapper video */
 .video-wrapper {
     display: flex;
     justify-content: center;
+    margin-bottom: 2rem;
 }
 
+/* Styling untuk container video, mirip dengan PDF */
 .video-container {
     width: 100%;
     max-width: 800px;
     height: 450px;
-    border: 1px solid #444; /* Dark border */
     border-radius: 10px;
     overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
+.video-container iframe {
+    border: none;
+}
+
+/* Styling untuk deskripsi video */
 .video-desc {
     text-align: center;
-    margin-top: 1rem;
-    color: #f0f0f0;
 }
 
-/* Footer */
+.video-desc p {
+    color: #f4f4f4;
+}
+
+/* Styling untuk footer */
 footer {
-    background-color: #1a1a1a; /* Dark footer */
-    color: #f0f0f0;
+    background-color: #1a1a1a;
     text-align: center;
     padding: 1rem;
-    margin-top: 2rem;
+    color: #f4f4f4;
+    border-top: 1px solid #DAA520; /* Border atas dengan aksen kuning */
 }
 
-/* Responsive Design */
+/* Media query untuk responsivitas pada layar kecil (meskipun fokus laptop, ini untuk fleksibilitas) */
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
         padding: 1rem;
     }
-
+    
     .nav-links {
         margin-top: 1rem;
-        gap: 1rem;
     }
-
-    .hero-kelompok h1 {
+    
+    .nav-links li {
+        margin-left: 0;
+        margin-right: 1rem;
+    }
+    
+    .hero-overlay h1 {
         font-size: 2rem;
     }
-
-    .hero-kelompok p {
-        font-size: 1rem;
-    }
-
-    .section-title {
-        font-size: 2rem;
-    }
-
+    
     .kelompok-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Satu kolom pada mobile */
     }
-
+    
     .pdf-container, .video-container {
-        height: 300px;
+        height: 400px; /* Tinggi lebih kecil untuk mobile */
     }
 }
