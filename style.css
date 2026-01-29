@@ -11,6 +11,17 @@ body {
     line-height: 1.6;
     color: #f4f4f4; /* Warna teks terang untuk kontras dengan background gelap */
     background-color: #121212; /* Background gelap utama untuk tema gelap */
+    animation: fadeIn 1s ease-in-out; /* Animasi fade-in untuk seluruh body saat halaman load */
+}
+
+/* Keyframe untuk animasi fade-in, membuat elemen muncul secara bertahap dari transparan ke solid */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Mulai dari transparan */
+    }
+    to {
+        opacity: 1; /* Berakhir solid */
+    }
 }
 
 /* Styling untuk header, membuatnya sticky agar navigasi tetap di atas saat scroll */
@@ -20,6 +31,19 @@ header {
     z-index: 1000;
     background-color: #1a1a1a; /* Background gelap untuk header */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Bayangan untuk efek modern */
+    animation: slideDown 0.8s ease-out; /* Animasi slide down untuk header saat muncul */
+}
+
+/* Keyframe untuk animasi slide-down, membuat header turun dari atas */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%); /* Mulai dari atas layar */
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0); /* Berakhir di posisi normal */
+        opacity: 1;
+    }
 }
 
 /* Styling untuk navigasi, menggunakan flexbox untuk layout horizontal */
@@ -37,10 +61,29 @@ nav {
     font-size: 1.5rem;
     font-weight: 600;
     color: #f4f4f4;
+    animation: bounceIn 1s ease-out 0.5s both; /* Animasi bounce-in untuk logo dengan delay */
 }
 
 .logo span {
     color: #DAA520; /* Warna kuning gelap sebagai aksen */
+}
+
+/* Keyframe untuk animasi bounce-in, membuat elemen muncul dengan efek bounce */
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 /* Styling untuk daftar link navigasi, menggunakan flexbox untuk horizontal */
@@ -51,17 +94,31 @@ nav {
 
 .nav-links li {
     margin-left: 2rem;
+    animation: fadeInUp 0.8s ease-out 0.7s both; /* Animasi fade-in dari bawah untuk setiap link dengan delay */
 }
 
 .nav-links a {
     color: #f4f4f4;
     text-decoration: none;
     font-weight: 400;
-    transition: color 0.3s ease; /* Transisi halus untuk hover */
+    transition: color 0.3s ease, transform 0.3s ease; /* Transisi halus untuk hover, tambah transform */
 }
 
 .nav-links a:hover {
     color: #DAA520; /* Hover dengan warna kuning gelap */
+    transform: scale(1.1); /* Efek scale pada hover untuk interaktivitas */
+}
+
+/* Keyframe untuk animasi fade-in dari bawah */
+@keyframes fadeInUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 /* Styling untuk bagian hero, menggunakan background image atau gradient untuk efek modern */
@@ -73,214 +130,4 @@ nav {
     justify-content: center;
     text-align: center;
     position: relative;
-}
-
-/* Overlay untuk hero, menambahkan transparansi untuk teks lebih mudah dibaca */
-.hero-overlay {
-    background: rgba(0, 0, 0, 0.5); /* Overlay semi-transparan */
-    padding: 2rem;
-    border-radius: 10px;
-    max-width: 600px;
-}
-
-.hero-overlay p:first-child {
-    font-size: 1.2rem;
-    color: #DAA520; /* Aksen kuning gelap */
-}
-
-.hero-overlay h1 {
-    font-size: 3rem;
-    margin: 1rem 0;
-    color: #f4f4f4;
-}
-
-.hero-overlay p:nth-child(3) {
-    font-size: 1rem;
-    margin-bottom: 2rem;
-}
-
-/* Styling untuk tombol di hero */
-.hero-buttons .btn-cek {
-    background-color: #DAA520; /* Background kuning gelap */
-    color: #121212; /* Teks gelap untuk kontras */
-    padding: 0.75rem 1.5rem;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-}
-
-.hero-buttons .btn-cek:hover {
-    background-color: #B8860B; /* Hover lebih gelap */
-}
-
-/* Styling umum untuk section container, dengan padding dan max-width untuk responsivitas */
-.section-container {
-    padding: 4rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Background alternatif untuk section, bg-light adalah abu-abu gelap */
-.bg-light {
-    background-color: #1e1e1e;
-}
-
-.bg-white {
-    background-color: #2a2a2a; /* Lebih gelap dari putih untuk tema gelap */
-}
-
-/* Styling untuk judul section */
-.section-title {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 2rem;
-    color: #f4f4f4;
-}
-
-/* Styling untuk grid anggota kelompok, menggunakan grid untuk kartu sejajar */
-.kelompok-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsif, kartu sejajar */
-    gap: 2rem;
-    justify-items: center;
-}
-
-/* Styling untuk kartu anggota, dengan efek hover untuk interaktivitas */
-.kelompok-card {
-    background-color: #2c2c2c;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
-
-.kelompok-card:hover {
-    transform: translateY(-5px); /* Efek lift pada hover */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-}
-
-/* Styling untuk gambar di kartu */
-.card-img img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-/* Styling untuk info di kartu */
-.card-info {
-    padding: 1rem;
-    text-align: center;
-}
-
-.card-info h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: #f4f4f4;
-}
-
-.card-info p {
-    color: #DAA520; /* Aksen kuning gelap */
-}
-
-/* Styling untuk wrapper konten di section makalah */
-.content-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
-}
-
-/* Styling untuk container PDF, menggunakan iframe responsif */
-.pdf-container {
-    width: 100%;
-    max-width: 800px;
-    height: 600px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-.pdf-container iframe {
-    border: none;
-}
-
-/* Styling untuk deskripsi di makalah */
-.content-desc {
-    text-align: center;
-}
-
-.content-desc p {
-    margin-bottom: 1rem;
-    color: #f4f4f4;
-}
-
-/* Styling untuk wrapper video */
-.video-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
-}
-
-/* Styling untuk container video, mirip dengan PDF */
-.video-container {
-    width: 100%;
-    max-width: 800px;
-    height: 450px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-.video-container iframe {
-    border: none;
-}
-
-/* Styling untuk deskripsi video */
-.video-desc {
-    text-align: center;
-}
-
-.video-desc p {
-    color: #f4f4f4;
-}
-
-/* Styling untuk footer */
-footer {
-    background-color: #1a1a1a;
-    text-align: center;
-    padding: 1rem;
-    color: #f4f4f4;
-    border-top: 1px solid #DAA520; /* Border atas dengan aksen kuning */
-}
-
-/* Media query untuk responsivitas pada layar kecil (meskipun fokus laptop, ini untuk fleksibilitas) */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        padding: 1rem;
-    }
-    
-    .nav-links {
-        margin-top: 1rem;
-    }
-    
-    .nav-links li {
-        margin-left: 0;
-        margin-right: 1rem;
-    }
-    
-    .hero-overlay h1 {
-        font-size: 2rem;
-    }
-    
-    .kelompok-grid {
-        grid-template-columns: 1fr; /* Satu kolom pada mobile */
-    }
-    
-    .pdf-container, .video-container {
-        height: 400px; /* Tinggi lebih kecil untuk mobile */
-    }
-}
+    animation: fadeIn 1.5s ease-in-out 1s both; /* Animasi fade-in untuk
