@@ -1,0 +1,260 @@
+/* style.css */
+
+/* Reset and Basic Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #f0f0f0; /* Light text for dark theme */
+    background-color: #121212; /* Dark background */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header and Navigation */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(26, 26, 26, 0.9); /* Dark semi-transparent */
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #f0f0f0;
+}
+
+.logo span {
+    color: #B8860B; /* Dark yellow accent */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links li a {
+    font-weight: 400;
+    color: #f0f0f0;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #B8860B; /* Dark yellow on hover */
+}
+
+/* Hero Section */
+.hero-kelompok {
+    height: 100vh;
+    background: url('img/hero-bg.jpg') no-repeat center center/cover; /* Replace with actual background image */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #f0f0f0;
+    position: relative;
+}
+
+.hero-overlay {
+    background-color: rgba(0, 0, 0, 0.7); /* Darker overlay */
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 600px;
+}
+
+.hero-kelompok h1 {
+    font-size: 3rem;
+    margin: 1rem 0;
+    font-weight: 600;
+    color: #B8860B; /* Dark yellow heading */
+}
+
+.hero-kelompok p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #f0f0f0;
+}
+
+.btn-cek {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #B8860B; /* Dark yellow button */
+    color: #121212; /* Dark text on button */
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-cek:hover {
+    background-color: #DAA520; /* Lighter dark yellow on hover */
+}
+
+/* Section Containers */
+.section-container {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.bg-light {
+    background-color: #1a1a1a; /* Dark background for sections */
+}
+
+.bg-white {
+    background-color: #2a2a2a; /* Slightly lighter dark for contrast */
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    color: #B8860B; /* Dark yellow titles */
+}
+
+/* Kelompok Section */
+.kelompok-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.kelompok-card {
+    background-color: #2a2a2a; /* Dark card background */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.kelompok-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+}
+
+.card-img img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-info {
+    padding: 1rem;
+    text-align: center;
+}
+
+.card-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #f0f0f0;
+}
+
+.card-info p {
+    color: #cccccc; /* Light gray for secondary text */
+}
+
+/* Laporan Section */
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pdf-container {
+    width: 100%;
+    max-width: 800px;
+    height: 600px;
+    border: 1px solid #444; /* Dark border */
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.content-desc {
+    text-align: center;
+    color: #f0f0f0;
+}
+
+/* Video Section */
+.video-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.video-container {
+    width: 100%;
+    max-width: 800px;
+    height: 450px;
+    border: 1px solid #444; /* Dark border */
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.video-desc {
+    text-align: center;
+    margin-top: 1rem;
+    color: #f0f0f0;
+}
+
+/* Footer */
+footer {
+    background-color: #1a1a1a; /* Dark footer */
+    color: #f0f0f0;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .nav-links {
+        margin-top: 1rem;
+        gap: 1rem;
+    }
+
+    .hero-kelompok h1 {
+        font-size: 2rem;
+    }
+
+    .hero-kelompok p {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .kelompok-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pdf-container, .video-container {
+        height: 300px;
+    }
+}
