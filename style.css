@@ -1,319 +1,407 @@
-/* Reset and Global Styles for Dark Theme */
+/* style.css */
+
+/* Reset and Basic Styles */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #121212; /* Dark background */
-  color: #e0e0e0; /* Light text for contrast */
-  line-height: 1.6;
-  overflow-x: hidden; /* Prevent horizontal scroll */
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #f0f0f0; /* Light text for dark theme */
+    background-color: #121212; /* Dark background */
+    animation: fadeIn 1s ease-in-out; /* Animasi fade-in untuk seluruh body saat halaman load */
+}
+
+/* Keyframe untuk animasi fade-in, membuat elemen muncul secara bertahap dari transparan ke solid */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Mulai dari transparan */
+    }
+    to {
+        opacity: 1; /* Berakhir solid */
+    }
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 /* Header and Navigation */
 header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: #1a1a1a; /* Slightly lighter dark */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-  transition: background-color 0.3s ease; /* Smooth transition */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(26, 26, 26, 0.9); /* Dark semi-transparent */
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    animation: slideDown 0.8s ease-out; /* Animasi slide-down untuk header saat muncul */
+}
+
+/* Keyframe untuk animasi slide-down, membuat header turun dari atas */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%); /* Mulai dari atas layar */
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0); /* Berakhir di posisi normal */
+        opacity: 1;
+    }
 }
 
 nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #B22222; /* Dark red accent */
-  animation: fadeIn 1s ease-in-out; /* Fade-in animation */
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #f0f0f0;
+    animation: bounceIn 1s ease-out 0.5s both; /* Animasi bounce-in untuk logo dengan delay */
 }
 
-ul {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
+.logo span {
+    color: #B8860B; /* Dark yellow accent */
 }
 
-ul li a {
-  color: #e0e0e0;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease, transform 0.3s ease; /* Hover animation */
+/* Keyframe untuk animasi bounce-in, membuat elemen muncul dengan efek bounce */
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
-ul li a:hover {
-  color: #B22222; /* Dark red on hover */
-  transform: translateY(-2px); /* Slight lift */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links li a {
+    font-weight: 400;
+    color: #f0f0f0;
+    transition: color 0.3s, transform 0.3s ease; /* Tambah transform untuk animasi hover */
+    animation: fadeInUp 0.8s ease-out 0.7s both; /* Animasi fade-in dari bawah untuk link dengan delay */
+}
+
+.nav-links li a:hover {
+    color: #B8860B; /* Dark yellow on hover */
+    transform: scale(1.1); /* Efek scale pada hover */
+}
+
+/* Keyframe untuk animasi fade-in dari bawah */
+@keyframes fadeInUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 /* Hero Section */
-.hero {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 5rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  min-height: 100vh;
-  animation: slideInFromLeft 1.5s ease-out; /* Slide-in animation */
+.hero-kelompok {
+    height: 100vh;
+    background: url('img/hero-bg.jpg') no-repeat center center/cover; /* Replace with actual background image */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #f0f0f0;
+    position: relative;
+    animation: fadeIn 1.5s ease-in-out 1s both; /* Animasi fade-in untuk hero dengan delay */
 }
 
-.hero-content {
-  flex: 1;
-  padding-right: 2rem;
+.hero-overlay {
+    background-color: rgba(0, 0, 0, 0.7); /* Darker overlay */
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 600px;
+    animation: slideUp 1s ease-out 1.2s both; /* Animasi slide-up untuk overlay */
 }
 
-.hero-content p:first-child {
-  font-size: 1.2rem;
-  color: #B22222; /* Dark red */
+.hero-kelompok h1 {
+    font-size: 3rem;
+    margin: 1rem 0;
+    font-weight: 600;
+    color: #B8860B; /* Dark yellow heading */
+    animation: fadeInRight 0.8s ease-out 1.5s both; /* Animasi fade-in dari kanan untuk judul */
 }
 
-.hero-content h1 {
-  font-size: 3rem;
-  margin: 1rem 0;
-  color: #ffffff;
+.hero-kelompok p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #f0f0f0;
+    animation: fadeInLeft 0.8s ease-out 1.7s both; /* Animasi fade-in dari kiri untuk paragraf */
 }
 
-.hero-content p:nth-child(3) {
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
+.btn-cek {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #B8860B; /* Dark yellow button */
+    color: #121212; /* Dark text on button */
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s ease; /* Tambah transform untuk animasi hover */
+    animation: pulse 2s infinite; /* Animasi pulse untuk menarik perhatian */
 }
 
-.btn-hero {
-  display: inline-block;
-  background-color: #B22222; /* Dark red button */
-  color: #ffffff;
-  padding: 0.8rem 1.5rem;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Hover animation */
+.btn-cek:hover {
+    background-color: #DAA520; /* Lighter dark yellow on hover */
+    transform: scale(1.05); /* Efek scale pada hover */
 }
 
-.btn-hero:hover {
-  background-color: #8B0000; /* Darker red on hover */
-  transform: scale(1.05); /* Slight scale */
+/* Keyframe untuk animasi slide-up */
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
-.hero-logo img {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 4px 15px rgba(178, 34, 34, 0.5); /* Dark red shadow */
-  animation: fadeIn 2s ease-in-out; /* Fade-in animation */
+/* Keyframe untuk animasi fade-in dari kanan */
+@keyframes fadeInRight {
+    from {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
-/* About Section */
-.about {
-  padding: 4rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  animation: fadeInUp 1.5s ease-out; /* Fade-in from bottom */
+/* Keyframe untuk animasi fade-in dari kiri */
+@keyframes fadeInLeft {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
-.about h2 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: #B22222; /* Dark red */
-  text-align: center;
+/* Keyframe untuk animasi pulse, membuat tombol "bernapas" */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
-.about-content p {
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-  text-align: justify;
+/* Section Containers */
+.section-container {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    animation: fadeInUp 1s ease-out both; /* Animasi fade-in dari bawah untuk setiap section */
 }
 
-/* Project Section */
-.project {
-  padding: 4rem 2rem;
-  background-color: #1a1a1a; /* Slightly lighter dark for contrast */
-  animation: fadeInUp 1.5s ease-out; /* Fade-in from bottom */
+.bg-light {
+    background-color: #1a1a1a; /* Dark background for sections */
 }
 
-.project h2 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: #B22222; /* Dark red */
-  text-align: center;
+.bg-white {
+    background-color: #2a2a2a; /* Slightly lighter dark for contrast */
 }
 
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    color: #B8860B; /* Dark yellow titles */
+    animation: fadeInDown 0.8s ease-out both; /* Animasi fade-in dari atas untuk judul */
 }
 
-.project-card {
-  background-color: #2a2a2a; /* Dark card background */
-  border-radius: 10px;
-  overflow: hidden;
-  text-decoration: none;
-  color: #e0e0e0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover animation */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+/* Keyframe untuk animasi fade-in dari atas */
+@keyframes fadeInDown {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
-.project-card:hover {
-  transform: translateY(-10px); /* Lift on hover */
-  box-shadow: 0 8px 20px rgba(178, 34, 34, 0.5); /* Dark red shadow */
+/* Kelompok Section */
+.kelompok-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
 }
 
-.project-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+.kelompok-card {
+    background-color: #2a2a2a; /* Dark card background */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s; /* Transisi untuk hover */
+    animation: zoomIn 0.6s ease-out both; /* Animasi zoom-in untuk kartu */
 }
 
-.project-info {
-  padding: 1rem;
+.kelompok-card:hover {
+    transform: translateY(-5px) scale(1.05); /* Efek lift dan scale pada hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
 }
 
-.project-info h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  color: #B22222; /* Dark red */
+/* Keyframe untuk animasi zoom-in */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
-.project-info p {
-  font-size: 1rem;
+.card-img img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease; /* Transisi untuk gambar */
 }
 
-/* Medsos (Social Media) Section */
-.medsos {
-  padding: 4rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  animation: fadeInUp 1.5s ease-out; /* Fade-in from bottom */
+.card-img img:hover {
+    transform: scale(1.1); /* Efek zoom pada gambar saat hover kartu */
 }
 
-.medsos h2 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: #B22222; /* Dark red */
-  text-align: center;
+.card-info {
+    padding: 1rem;
+    text-align: center;
 }
 
-.medsos-list {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+.card-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #f0f0f0;
 }
 
-.medsos-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  color: #e0e0e0;
-  transition: transform 0.3s ease, color 0.3s ease; /* Hover animation */
+.card-info p {
+    color: #cccccc; /* Light gray for secondary text */
 }
 
-.medsos-item:hover {
-  transform: scale(1.1); /* Scale on hover */
-  color: #B22222; /* Dark red on hover */
+/* Laporan Section */
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.medsos-item img {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 0.5rem;
-  border-radius: 50%;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+.pdf-container {
+    width: 100%;
+    max-width: 800px;
+    height: 600px;
+    border: 1px solid #444; /* Dark border */
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    animation: fadeIn 1s ease-out both; /* Animasi fade-in untuk container PDF */
 }
 
-.medsos-item span {
-  font-weight: 500;
+.content-desc {
+    text-align: center;
+    color: #f0f0f0;
+}
+
+/* Video Section */
+.video-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.video-container {
+    width: 100%;
+    max-width: 800px;
+    height: 450px;
+    border: 1px solid #444; /* Dark border */
+    border-radius: 10px;
+    overflow: hidden;
+    animation: fadeIn 1s ease-out both; /* Animasi fade-in untuk container video */
+}
+
+.video-desc {
+    text-align: center;
+    margin-top: 1rem;
+    color: #f0f0f0;
 }
 
 /* Footer */
 footer {
-  background-color: #1a1a1a; /* Dark footer */
-  text-align: center;
-  padding: 1rem;
-  color: #888;
-  animation: fadeIn 1s ease-in-out; /* Fade-in animation */
-}
-
-/* Keyframe Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideInFromLeft {
-  from {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    transform: translateY(50px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+    background-color: #1a1a1a; /* Dark footer */
+    color: #f0f0f0;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    animation: fadeInUp 1s ease-out both; /* Animasi fade-in dari bawah untuk footer */
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    gap: 1rem;
-  }
+    nav {
+        flex-direction: column;
+        padding: 1rem;
+    }
 
-  ul {
-    gap: 1rem;
-  }
+    .nav-links {
+        margin-top: 1rem;
+        gap: 1rem;
+    }
 
-  .hero {
-    flex-direction: column;
-    text-align: center;
-    padding: 3rem 1rem;
-  }
+    .hero-kelompok h1 {
+        font-size: 2rem;
+    }
 
-  .hero-content {
-    padding-right: 0;
-  }
+    .hero-kelompok p {
+        font-size: 1rem;
+    }
 
-  .hero-logo img {
-    width: 200px;
-    height: 200px;
-  }
+    .section-title {
+        font-size: 2rem;
+    }
 
-  .project-grid {
-    grid-template-columns: 1fr;
-  }
+    .kelompok-grid {
+        grid-template-columns: 1fr;
+    }
 
-  .medsos-list {
-    flex-direction: column;
-    align-items: center;
-  }
+    .pdf-container, .video-container {
+        height: 300px;
+    }
 }
