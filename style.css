@@ -1,6 +1,8 @@
-/* style.css */
+/* Import Font untuk Tema Sejarah Perang (Klasik dan Serius) */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap'); /* Font serif seperti tulisan kuno */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap'); /* Font utama untuk body */
 
-/* Reset and Basic Styles */
+/* Reset dan Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -8,50 +10,39 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif; /* Font modern untuk readability */
     line-height: 1.6;
-    color: #f0f0f0; /* Light text for dark theme */
-    background-color: #121212; /* Dark background */
-    animation: fadeIn 1s ease-in-out; /* Animasi fade-in untuk seluruh body saat halaman load */
+    color: #333;
+    background: linear-gradient(to bottom, #2C2C2C 0%, #1A1A1A 50%, #000000 100%); /* Gradien gelap seperti malam perang */
+    background-attachment: fixed;
+    overflow-x: hidden;
+    position: relative;
 }
 
-/* Keyframe untuk animasi fade-in, membuat elemen muncul secara bertahap dari transparan ke solid */
-@keyframes fadeIn {
-    from {
-        opacity: 0; /* Mulai dari transparan */
-    }
-    to {
-        opacity: 1; /* Berakhir solid */
-    }
+/* Tambahan elemen latar belakang: Tekstur seperti peta tua atau kertas sobek */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://example.com/old-paper-texture.png'); /* Ganti dengan gambar tekstur kertas tua atau peta perang */
+    background-size: cover;
+    opacity: 0.1; /* Subtle overlay */
+    pointer-events: none;
+    z-index: -1;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-/* Header and Navigation */
+/* Header dan Navigasi */
 header {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: rgba(26, 26, 26, 0.9); /* Dark semi-transparent */
-    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.9); /* Hitam transparan seperti bayangan perang */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    animation: slideDown 0.8s ease-out; /* Animasi slide-down untuk header saat muncul */
-}
-
-/* Keyframe untuk animasi slide-down, membuat header turun dari atas */
-@keyframes slideDown {
-    from {
-        transform: translateY(-100%); /* Mulai dari atas layar */
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0); /* Berakhir di posisi normal */
-        opacity: 1;
-    }
+    border-bottom: 3px solid #B22222; /* Border merah darah */
 }
 
 nav {
@@ -64,117 +55,63 @@ nav {
 }
 
 .logo {
+    font-family: 'Cinzel', serif; /* Font klasik untuk logo */
     font-size: 1.5rem;
     font-weight: 600;
-    color: #f0f0f0;
-    animation: bounceIn 1s ease-out 0.5s both; /* Animasi bounce-in untuk logo dengan delay */
+    color: #FFD700; /* Emas seperti medali */
+    text-shadow: 2px 2px #000;
 }
 
 .logo span {
-    color: #B8860B; /* Dark yellow accent */
-}
-
-/* Keyframe untuk animasi bounce-in, membuat elemen muncul dengan efek bounce */
-@keyframes bounceIn {
-    0% {
-        transform: scale(0.3);
-        opacity: 0;
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    70% {
-        transform: scale(0.9);
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
+    color: #B22222; /* Merah untuk aksen */
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 2rem;
 }
 
-.nav-links li a {
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #FFF;
     font-weight: 400;
-    color: #f0f0f0;
-    transition: color 0.3s, transform 0.3s ease; /* Tambah transform untuk animasi hover */
-    animation: fadeInUp 0.8s ease-out 0.7s both; /* Animasi fade-in dari bawah untuk link dengan delay */
+    transition: color 0.3s, transform 0.3s;
+    font-family: 'Cinzel', serif; /* Font klasik untuk nav */
 }
 
-.nav-links li a:hover {
-    color: #B8860B; /* Dark yellow on hover */
-    transform: scale(1.1); /* Efek scale pada hover */
-}
-
-/* Keyframe untuk animasi fade-in dari bawah */
-@keyframes fadeInUp {
-    from {
-        transform: translateY(30px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+.nav-links a:hover {
+    color: #FFD700;
+    transform: scale(1.05); /* Efek zoom seperti fokus pada target */
 }
 
 /* Hero Section */
 .hero-kelompok {
-    height: 100vh;
-    background: url('img/hero-bg.jpg') no-repeat center center/cover; /* Replace with actual background image */
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    color: #f0f0f0;
+    min-height: 100vh;
+    background: url('https://example.com/war-hero-bg.jpg') no-repeat center center; /* Ganti dengan gambar latar belakang perang, seperti medan perang atau museum */
+    background-size: cover;
     position: relative;
-    animation: fadeIn 1.5s ease-in-out 1s both; /* Animasi fade-in untuk hero dengan delay */
+    padding: 2rem;
 }
 
 .hero-overlay {
-    background-color: rgba(0, 0, 0, 0.7); /* Darker overlay */
-    padding: 2rem;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7); /* Overlay gelap untuk kontras */
+    padding: 3rem;
     border-radius: 10px;
-    max-width: 600px;
-    animation: slideUp 1s ease-out 1.2s both; /* Animasi slide-up untuk overlay */
+    border: 2px solid #B22222;
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    max-width: 800px;
+    animation: fadeInUp 1s ease-out; /* Animasi masuk dramatis */
 }
 
-.hero-kelompok h1 {
-    font-size: 3rem;
-    margin: 1rem 0;
-    font-weight: 600;
-    color: #B8860B; /* Dark yellow heading */
-    animation: fadeInRight 0.8s ease-out 1.5s both; /* Animasi fade-in dari kanan untuk judul */
-}
-
-.hero-kelompok p {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    color: #f0f0f0;
-    animation: fadeInLeft 0.8s ease-out 1.7s both; /* Animasi fade-in dari kiri untuk paragraf */
-}
-
-.btn-cek {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background-color: #B8860B; /* Dark yellow button */
-    color: #121212; /* Dark text on button */
-    border-radius: 5px;
-    transition: background-color 0.3s, transform 0.3s ease; /* Tambah transform untuk animasi hover */
-    animation: pulse 2s infinite; /* Animasi pulse untuk menarik perhatian */
-}
-
-.btn-cek:hover {
-    background-color: #DAA520; /* Lighter dark yellow on hover */
-    transform: scale(1.05); /* Efek scale pada hover */
-}
-
-/* Keyframe untuk animasi slide-up */
-@keyframes slideUp {
+@keyframes fadeInUp {
     from {
         transform: translateY(50px);
         opacity: 0;
@@ -185,81 +122,80 @@ nav {
     }
 }
 
-/* Keyframe untuk animasi fade-in dari kanan */
-@keyframes fadeInRight {
-    from {
-        transform: translateX(50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
+.hero-kelompok p:first-child {
+    font-size: 1rem;
+    color: #FFD700;
+    font-family: 'Cinzel', serif;
 }
 
-/* Keyframe untuk animasi fade-in dari kiri */
-@keyframes fadeInLeft {
-    from {
-        transform: translateX(-50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
+.hero-kelompok h1 {
+    font-size: 3rem;
+    margin: 1rem 0;
+    color: #FFF;
+    text-shadow: 3px 3px #000;
+    font-family: 'Cinzel', serif;
 }
 
-/* Keyframe untuk animasi pulse, membuat tombol "bernapas" */
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
-    }
+.hero-kelompok p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #CCC;
 }
 
-/* Section Containers */
+.hero-buttons .btn-cek {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: #B22222;
+    color: #FFF;
+    border-radius: 5px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.3s;
+    border: 2px solid #FFD700;
+    font-family: 'Cinzel', serif;
+}
+
+.hero-buttons .btn-cek:hover {
+    background: #8B0000;
+    transform: translateY(-5px); /* Efek naik seperti serangan */
+}
+
+.hero-buttons .btn-cek:active {
+    transform: scale(0.95) translateY(2px); /* Efek tekan */
+}
+
+/* Section Container */
 .section-container {
     padding: 4rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
-    animation: fadeInUp 1s ease-out both; /* Animasi fade-in dari bawah untuk setiap section */
 }
 
 .bg-light {
-    background-color: #1a1a1a; /* Dark background for sections */
+    background: rgba(255, 255, 255, 0.1); /* Transparan putih untuk kontras */
+    border-top: 2px solid #B22222;
+    border-bottom: 2px solid #B22222;
 }
 
 .bg-white {
-    background-color: #2a2a2a; /* Slightly lighter dark for contrast */
+    background: rgba(255, 255, 255, 0.05); /* Lebih gelap untuk variasi */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .section-title {
     text-align: center;
-    font-size: 2.5rem;
     margin-bottom: 2rem;
-    font-weight: 600;
-    color: #B8860B; /* Dark yellow titles */
-    animation: fadeInDown 0.8s ease-out both; /* Animasi fade-in dari atas untuk judul */
+    color: #FFD700;
+    font-size: 2.5rem;
+    font-family: 'Cinzel', serif;
+    text-shadow: 2px 2px #000;
 }
 
-/* Keyframe untuk animasi fade-in dari atas */
-@keyframes fadeInDown {
-    from {
-        transform: translateY(-30px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-/* Kelompok Section */
+/* Kelompok Grid */
 .kelompok-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -267,40 +203,42 @@ nav {
 }
 
 .kelompok-card {
-    background-color: #2a2a2a; /* Dark card background */
+    background: rgba(0, 0, 0, 0.8); /* Gelap seperti kartu identitas tentara */
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s, box-shadow 0.3s; /* Transisi untuk hover */
-    animation: zoomIn 0.6s ease-out both; /* Animasi zoom-in untuk kartu */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    color: #FFF;
+    border: 2px solid #B22222;
+    position: relative;
 }
 
 .kelompok-card:hover {
-    transform: translateY(-5px) scale(1.05); /* Efek lift dan scale pada hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.7);
 }
 
-/* Keyframe untuk animasi zoom-in */
-@keyframes zoomIn {
-    from {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
+.kelompok-card::before {
+    content: '⚔️'; /* Simbol pedang untuk tema perang */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    color: #FFD700;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.kelompok-card:hover::before {
+    opacity: 1;
 }
 
 .card-img img {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    transition: transform 0.3s ease; /* Transisi untuk gambar */
-}
-
-.card-img img:hover {
-    transform: scale(1.1); /* Efek zoom pada gambar saat hover kartu */
+    border-bottom: 2px solid #B22222;
 }
 
 .card-info {
@@ -309,71 +247,94 @@ nav {
 }
 
 .card-info h3 {
-    font-size: 1.2rem;
     margin-bottom: 0.5rem;
-    color: #f0f0f0;
+    color: #FFD700;
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
 }
 
 .card-info p {
-    color: #cccccc; /* Light gray for secondary text */
+    color: #CCC;
+    font-size: 0.9rem;
 }
 
-/* Laporan Section */
+/* Content Wrapper untuk Laporan */
 .content-wrapper {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
 }
 
 .pdf-container {
     width: 100%;
     max-width: 800px;
     height: 600px;
-    border: 1px solid #444; /* Dark border */
+    border: 2px solid #B22222;
     border-radius: 10px;
     overflow: hidden;
-    margin-bottom: 1rem;
-    animation: fadeIn 1s ease-out both; /* Animasi fade-in untuk container PDF */
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 
 .content-desc {
     text-align: center;
-    color: #f0f0f0;
+    color: #CCC;
 }
 
-/* Video Section */
+.content-desc .btn-cek {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: #B22222;
+    color: #FFF;
+    border-radius: 5px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.3s;
+    border: 2px solid #FFD700;
+    font-family: 'Cinzel', serif;
+}
+
+.content-desc .btn-cek:hover {
+    background: #8B0000;
+    transform: translateY(-5px);
+}
+
+.content-desc .btn-cek:active {
+    transform: scale(0.95) translateY(2px);
+}
+
+/* Video Wrapper */
 .video-wrapper {
     display: flex;
     justify-content: center;
+    margin-bottom: 2rem;
 }
 
 .video-container {
     width: 100%;
     max-width: 800px;
     height: 450px;
-    border: 1px solid #444; /* Dark border */
+    border: 2px solid #B22222;
     border-radius: 10px;
     overflow: hidden;
-    animation: fadeIn 1s ease-out both; /* Animasi fade-in untuk container video */
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 
 .video-desc {
     text-align: center;
-    margin-top: 1rem;
-    color: #f0f0f0;
+    color: #CCC;
 }
 
 /* Footer */
 footer {
-    background-color: #1a1a1a; /* Dark footer */
-    color: #f0f0f0;
     text-align: center;
-    padding: 1rem;
-    margin-top: 2rem;
-    animation: fadeInUp 1s ease-out both; /* Animasi fade-in dari bawah untuk footer */
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.9);
+    color: #CCC;
+    border-top: 3px solid #B22222;
+    font-family: 'Cinzel', serif;
 }
 
-/* Responsive Design */
+/* Responsivitas */
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
@@ -382,18 +343,17 @@ footer {
 
     .nav-links {
         margin-top: 1rem;
-        gap: 1rem;
+    }
+
+    .nav-links li {
+        margin-left: 1rem;
+    }
+
+    .hero-overlay {
+        padding: 2rem;
     }
 
     .hero-kelompok h1 {
-        font-size: 2rem;
-    }
-
-    .hero-kelompok p {
-        font-size: 1rem;
-    }
-
-    .section-title {
         font-size: 2rem;
     }
 
@@ -401,7 +361,12 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .pdf-container, .video-container {
-        height: 300px;
+    .pdf-container,
+    .video-container {
+        height: 400px;
+    }
+
+    .section-title {
+        font-size: 2rem;
     }
 }
