@@ -1,6 +1,4 @@
-/* Import Font untuk Tema Sejarah Perang (Klasik dan Serius) */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap'); /* Font serif seperti tulisan kuno */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap'); /* Font utama untuk body */
+/* style.css */
 
 /* Reset dan Base Styles */
 * {
@@ -10,39 +8,32 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif; /* Font modern untuk readability */
+    font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: #333;
-    background: linear-gradient(to bottom, #2C2C2C 0%, #1A1A1A 50%, #000000 100%); /* Gradien gelap seperti malam perang */
+    background: linear-gradient(135deg, #1e3a8a 0%, #dc2626 50%, #000 100%); /* Gradien superhero: biru (Superman), merah (Spiderman), hitam (Batman) */
     background-attachment: fixed;
     overflow-x: hidden;
-    position: relative;
 }
 
-/* Tambahan elemen latar belakang: Tekstur seperti peta tua atau kertas sobek */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://example.com/old-paper-texture.png'); /* Ganti dengan gambar tekstur kertas tua atau peta perang */
-    background-size: cover;
-    opacity: 0.1; /* Subtle overlay */
-    pointer-events: none;
-    z-index: -1;
-}
-
-/* Header dan Navigasi */
+/* Header dan Nav */
 header {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.9); /* Hitam transparan seperti bayangan perang */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.9); /* Hitam transparan seperti kostum Batman */
     z-index: 1000;
-    border-bottom: 3px solid #B22222; /* Border merah darah */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    animation: slideDown 1s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
 }
 
 nav {
@@ -55,15 +46,25 @@ nav {
 }
 
 .logo {
-    font-family: 'Cinzel', serif; /* Font klasik untuk logo */
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 600;
-    color: #FFD700; /* Emas seperti medali */
-    text-shadow: 2px 2px #000;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .logo span {
-    color: #B22222; /* Merah untuk aksen */
+    color: #dc2626; /* Merah seperti Spiderman */
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #dc2626;
+    }
+    to {
+        text-shadow: 0 0 20px #dc2626, 0 0 30px #dc2626;
+    }
 }
 
 .nav-links {
@@ -76,92 +77,102 @@ nav {
 }
 
 .nav-links a {
+    color: #fff;
     text-decoration: none;
-    color: #FFF;
     font-weight: 400;
     transition: color 0.3s, transform 0.3s;
-    font-family: 'Cinzel', serif; /* Font klasik untuk nav */
 }
 
 .nav-links a:hover {
-    color: #FFD700;
-    transform: scale(1.05); /* Efek zoom seperti fokus pada target */
+    color: #1e3a8a; /* Biru seperti Superman */
+    transform: scale(1.1);
 }
 
 /* Hero Section */
 .hero-kelompok {
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    background: url('https://example.com/war-hero-bg.jpg') no-repeat center center; /* Ganti dengan gambar latar belakang perang, seperti medan perang atau museum */
-    background-size: cover;
+    background: url('https://example.com/superhero-bg.jpg') no-repeat center center/cover; /* Ganti dengan gambar superhero seperti Avengers atau Batman */
     position: relative;
-    padding: 2rem;
+    text-align: center;
+    color: #fff;
 }
 
 .hero-overlay {
-    text-align: center;
-    background: rgba(0, 0, 0, 0.7); /* Overlay gelap untuk kontras */
-    padding: 3rem;
+    background: rgba(0, 0, 0, 0.6); /* Overlay gelap */
+    padding: 2rem;
     border-radius: 10px;
-    border: 2px solid #B22222;
-    box-shadow: 0 0 20px rgba(0,0,0,0.8);
-    max-width: 800px;
-    animation: fadeInUp 1s ease-out; /* Animasi masuk dramatis */
+    animation: fadeInUp 1.5s ease-out;
 }
 
 @keyframes fadeInUp {
     from {
-        transform: translateY(50px);
         opacity: 0;
+        transform: translateY(50px);
     }
     to {
-        transform: translateY(0);
         opacity: 1;
+        transform: translateY(0);
     }
-}
-
-.hero-kelompok p:first-child {
-    font-size: 1rem;
-    color: #FFD700;
-    font-family: 'Cinzel', serif;
 }
 
 .hero-kelompok h1 {
     font-size: 3rem;
     margin: 1rem 0;
-    color: #FFF;
-    text-shadow: 3px 3px #000;
-    font-family: 'Cinzel', serif;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    animation: bounceIn 2s ease-out;
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .hero-kelompok p {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-    color: #CCC;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
 }
 
 .hero-buttons .btn-cek {
-    display: inline-block;
-    padding: 0.8rem 1.5rem;
-    background: #B22222;
-    color: #FFF;
+    background: #dc2626; /* Merah Spiderman */
+    color: #fff;
+    padding: 0.8rem 2rem;
+    text-decoration: none;
     border-radius: 5px;
     font-weight: 600;
-    text-decoration: none;
     transition: background 0.3s, transform 0.3s;
-    border: 2px solid #FFD700;
-    font-family: 'Cinzel', serif;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(220, 38, 38, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
+    }
 }
 
 .hero-buttons .btn-cek:hover {
-    background: #8B0000;
-    transform: translateY(-5px); /* Efek naik seperti serangan */
-}
-
-.hero-buttons .btn-cek:active {
-    transform: scale(0.95) translateY(2px); /* Efek tekan */
+    background: #1e3a8a; /* Biru Superman */
+    transform: translateY(-5px);
 }
 
 /* Section Container */
@@ -172,27 +183,29 @@ nav {
 }
 
 .bg-light {
-    background: rgba(255, 255, 255, 0.1); /* Transparan putih untuk kontras */
-    border-top: 2px solid #B22222;
-    border-bottom: 2px solid #B22222;
+    background: rgba(255, 255, 255, 0.1); /* Transparan putih */
 }
 
 .bg-white {
-    background: rgba(255, 255, 255, 0.05); /* Lebih gelap untuk variasi */
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.9);
 }
 
 .section-title {
     text-align: center;
-    margin-bottom: 2rem;
-    color: #FFD700;
     font-size: 2.5rem;
-    font-family: 'Cinzel', serif;
-    text-shadow: 2px 2px #000;
+    margin-bottom: 2rem;
+    color: #1e3a8a; /* Biru Superman */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 /* Kelompok Grid */
@@ -203,42 +216,48 @@ nav {
 }
 
 .kelompok-card {
-    background: rgba(0, 0, 0, 0.8); /* Gelap seperti kartu identitas tentara */
+    background: #fff;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     text-decoration: none;
-    color: #FFF;
-    border: 2px solid #B22222;
-    position: relative;
+    color: #333;
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: slideIn 1s ease-out;
+    animation-fill-mode: both;
+}
+
+.kelompok-card:nth-child(1) { animation-delay: 0.1s; }
+.kelompok-card:nth-child(2) { animation-delay: 0.2s; }
+.kelompok-card:nth-child(3) { animation-delay: 0.3s; }
+.kelompok-card:nth-child(4) { animation-delay: 0.4s; }
+.kelompok-card:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 .kelompok-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.7);
-}
-
-.kelompok-card::before {
-    content: '⚔️'; /* Simbol pedang untuk tema perang */
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 1.5rem;
-    color: #FFD700;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.kelompok-card:hover::before {
-    opacity: 1;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 .card-img img {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-bottom: 2px solid #B22222;
+    transition: transform 0.3s;
+}
+
+.kelompok-card:hover .card-img img {
+    transform: scale(1.1);
 }
 
 .card-info {
@@ -247,91 +266,83 @@ nav {
 }
 
 .card-info h3 {
-    margin-bottom: 0.5rem;
-    color: #FFD700;
-    font-family: 'Cinzel', serif;
     font-size: 1.2rem;
+    margin-bottom: 0.5rem;
 }
 
-.card-info p {
-    color: #CCC;
-    font-size: 0.9rem;
-}
-
-/* Content Wrapper untuk Laporan */
-.content-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
-}
-
+/* Laporan Section */
 .pdf-container {
-    width: 100%;
-    max-width: 800px;
-    height: 600px;
-    border: 2px solid #B22222;
+    height: 500px;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    animation: zoomIn 1s ease-out;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .content-desc {
     text-align: center;
-    color: #CCC;
+    margin-top: 2rem;
 }
 
-.content-desc .btn-cek {
-    display: inline-block;
-    padding: 0.8rem 1.5rem;
-    background: #B22222;
-    color: #FFF;
-    border-radius: 5px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background 0.3s, transform 0.3s;
-    border: 2px solid #FFD700;
-    font-family: 'Cinzel', serif;
-}
-
-.content-desc .btn-cek:hover {
-    background: #8B0000;
-    transform: translateY(-5px);
-}
-
-.content-desc .btn-cek:active {
-    transform: scale(0.95) translateY(2px);
-}
-
-/* Video Wrapper */
+/* Video Section */
 .video-wrapper {
     display: flex;
     justify-content: center;
-    margin-bottom: 2rem;
 }
 
 .video-container {
     width: 100%;
     max-width: 800px;
     height: 450px;
-    border: 2px solid #B22222;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    animation: fadeInScale 1s ease-out;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .video-desc {
     text-align: center;
-    color: #CCC;
+    margin-top: 2rem;
 }
 
 /* Footer */
 footer {
+    background: #000; /* Hitam Batman */
+    color: #fff;
     text-align: center;
-    padding: 2rem;
-    background: rgba(0, 0, 0, 0.9);
-    color: #CCC;
-    border-top: 3px solid #B22222;
-    font-family: 'Cinzel', serif;
+    padding: 1rem;
+    animation: slideUp 1s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
 }
 
 /* Responsivitas */
@@ -349,10 +360,6 @@ footer {
         margin-left: 1rem;
     }
 
-    .hero-overlay {
-        padding: 2rem;
-    }
-
     .hero-kelompok h1 {
         font-size: 2rem;
     }
@@ -361,12 +368,7 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .pdf-container,
-    .video-container {
-        height: 400px;
-    }
-
-    .section-title {
-        font-size: 2rem;
+    .section-container {
+        padding: 2rem 1rem;
     }
 }
