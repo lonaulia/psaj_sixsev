@@ -1,4 +1,5 @@
-/* style.css */
+/* Import Font Retro untuk Tema The Last of Us (menggunakan font yang kasar seperti survival game) */
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap'); /* Font seperti typewriter, cocok untuk atmosfer TLOU */
 
 /* Reset dan Base Styles */
 * {
@@ -7,33 +8,53 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background: linear-gradient(135deg, #1e3a8a 0%, #dc2626 50%, #000 100%); /* Gradien superhero: biru (Superman), merah (Spiderman), hitam (Batman) */
-    background-attachment: fixed;
-    overflow-x: hidden;
+html {
+    scroll-behavior: smooth; /* Smooth scroll untuk navigasi */
 }
 
-/* Header dan Nav */
+body {
+    font-family: 'Courier Prime', monospace; /* Font kasar seperti log buku survival */
+    line-height: 1.6;
+    color: #D2B48C; /* Warna krem kusam seperti tanah */
+    background: linear-gradient(to bottom, #2F4F4F 0%, #556B2F 50%, #8B4513 100%); /* Gradient gelap: abu-abu hijau ke coklat tanah */
+    background-attachment: fixed;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Tambahan elemen latar belakang TLOU: Jamur dan reruntuhan */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 20%, rgba(139, 69, 19, 0.6) 15%, transparent 25%), /* Reruntuhan coklat */
+        radial-gradient(circle at 80% 30%, rgba(34, 139, 34, 0.5) 15%, transparent 25%), /* Tanaman liar hijau gelap */
+        radial-gradient(circle at 50% 60%, rgba(255, 0, 0, 0.3) 10%, transparent 20%); /* Jamur merah seperti Cordyceps */
+    background-size: 250px 250px, 200px 200px, 150px 150px;
+    background-repeat: no-repeat;
+    background-position: 10% 10%, 70% 20%, 40% 50%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+html, body {
+    /* Cursor custom: Gunakan gambar cursor seperti pisau atau sesuatu dari TLOU, atau default */
+    cursor: url('https://example.com/tlou-cursor.png'), auto; /* Ganti dengan gambar cursor TLOU jika ada */
+}
+
+/* Header dan Navigasi */
 header {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.9); /* Hitam transparan seperti kostum Batman */
+    background: #2F4F4F; /* Abu-abu gelap seperti logam berkarat */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.7);
     z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    animation: slideDown 1s ease-out;
-}
-
-@keyframes slideDown {
-    from {
-        transform: translateY(-100%);
-    }
-    to {
-        transform: translateY(0);
-    }
+    border-bottom: 5px solid #8B0000; /* Border merah darah seperti infeksi */
 }
 
 nav {
@@ -46,25 +67,20 @@ nav {
 }
 
 .logo {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #D2B48C; /* Krem kusam */
+    text-shadow: 2px 2px #000;
+    animation: flicker 3s infinite; /* Animasi flicker seperti lampu redup */
 }
 
 .logo span {
-    color: #dc2626; /* Merah seperti Spiderman */
-    animation: glow 2s infinite alternate;
+    color: #8B0000; /* Merah untuk "Empat" */
 }
 
-@keyframes glow {
-    from {
-        text-shadow: 0 0 5px #dc2626;
-    }
-    to {
-        text-shadow: 0 0 20px #dc2626, 0 0 30px #dc2626;
-    }
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
 }
 
 .nav-links {
@@ -77,135 +93,138 @@ nav {
 }
 
 .nav-links a {
-    color: #fff;
     text-decoration: none;
-    font-weight: 400;
+    color: #D2B48C;
+    font-weight: bold;
     transition: color 0.3s, transform 0.3s;
 }
 
 .nav-links a:hover {
-    color: #1e3a8a; /* Biru seperti Superman */
-    transform: scale(1.1);
+    color: #8B0000; /* Merah darah saat hover */
+    transform: scale(1.05); /* Efek zoom halus */
+}
+
+/* Animasi saat klik navigasi (efek shake seperti getaran) */
+.nav-links a:active {
+    animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
 }
 
 /* Hero Section */
 .hero-kelompok {
-    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url('https://example.com/superhero-bg.jpg') no-repeat center center/cover; /* Ganti dengan gambar superhero seperti Avengers atau Batman */
+    padding: 5rem 2rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background: url('https://example.com/tlou-ruins.png') no-repeat center; /* Ganti dengan gambar reruntuhan TLOU */
+    background-size: cover;
     position: relative;
-    text-align: center;
-    color: #fff;
 }
 
 .hero-overlay {
-    background: rgba(0, 0, 0, 0.6); /* Overlay gelap */
+    text-align: center;
+    background: rgba(47, 79, 79, 0.8); /* Overlay gelap */
     padding: 2rem;
     border-radius: 10px;
-    animation: fadeInUp 1.5s ease-out;
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+}
+
+.hero-overlay p:first-child {
+    font-size: 0.8rem;
+    color: #556B2F; /* Hijau gelap */
+}
+
+.hero-overlay h1 {
+    font-size: 2rem;
+    margin: 1rem 0;
+    color: #8B0000;
+    text-shadow: 3px 3px #000;
+    animation: fadeInUp 1.5s ease-out; /* Animasi fade-in lambat dari bawah */
 }
 
 @keyframes fadeInUp {
     from {
-        opacity: 0;
         transform: translateY(50px);
+        opacity: 0;
     }
     to {
-        opacity: 1;
         transform: translateY(0);
-    }
-}
-
-.hero-kelompok h1 {
-    font-size: 3rem;
-    margin: 1rem 0;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
-    animation: bounceIn 2s ease-out;
-}
-
-@keyframes bounceIn {
-    0% {
-        transform: scale(0.3);
-        opacity: 0;
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    70% {
-        transform: scale(0.9);
-    }
-    100% {
-        transform: scale(1);
         opacity: 1;
     }
 }
 
-.hero-kelompok p {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
+.hero-overlay p {
+    font-size: 0.7rem;
+    margin-bottom: 2rem;
 }
 
 .hero-buttons .btn-cek {
-    background: #dc2626; /* Merah Spiderman */
-    color: #fff;
-    padding: 0.8rem 2rem;
-    text-decoration: none;
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: #556B2F; /* Hijau gelap */
+    color: #D2B48C;
     border-radius: 5px;
-    font-weight: 600;
+    font-weight: bold;
     transition: background 0.3s, transform 0.3s;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
-    }
-    70% {
-        box-shadow: 0 0 0 10px rgba(220, 38, 38, 0);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
-    }
+    border: 2px solid #8B0000;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .hero-buttons .btn-cek:hover {
-    background: #1e3a8a; /* Biru Superman */
-    transform: translateY(-5px);
+    background: #8B4513; /* Coklat saat hover */
+    transform: translateY(-3px); /* Efek naik halus */
 }
 
-/* Section Container */
+.hero-buttons .btn-cek:active {
+    transform: scale(0.95) translateY(2px);
+    transition: transform 0.1s ease;
+}
+
+/* Section Container (untuk kelompok, laporan, video) */
 .section-container {
     padding: 4rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    background: rgba(47, 79, 79, 0.9); /* Abu-abu gelap transparan */
+    border-radius: 10px;
+    margin-top: 2rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border: 3px solid #8B0000;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity 1s ease, transform 1s ease; /* Animasi lambat */
+}
+
+.section-container.animate {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .bg-light {
-    background: rgba(255, 255, 255, 0.1); /* Transparan putih */
+    background: rgba(85, 107, 47, 0.9); /* Variasi hijau gelap */
+    border-color: #556B2F;
+    transform: translateX(100%); /* Slide dari kanan untuk variasi */
 }
 
 .bg-white {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(47, 79, 79, 0.9); /* Tetap gelap */
 }
 
 .section-title {
     text-align: center;
-    font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: #1e3a8a; /* Biru Superman */
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
-    animation: fadeIn 1s ease-out;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    color: #8B0000;
+    font-size: 1.8rem;
+    text-shadow: 2px 2px #000;
 }
 
 /* Kelompok Grid */
@@ -216,133 +235,140 @@ nav {
 }
 
 .kelompok-card {
-    background: #fff;
+    background: #2F4F4F;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    text-decoration: none;
-    color: #333;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
     transition: transform 0.3s, box-shadow 0.3s;
-    animation: slideIn 1s ease-out;
-    animation-fill-mode: both;
+    text-align: center;
+    border: 2px solid #556B2F;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
 }
 
-.kelompok-card:nth-child(1) { animation-delay: 0.1s; }
-.kelompok-card:nth-child(2) { animation-delay: 0.2s; }
-.kelompok-card:nth-child(3) { animation-delay: 0.3s; }
-.kelompok-card:nth-child(4) { animation-delay: 0.4s; }
-.kelompok-card:nth-child(5) { animation-delay: 0.5s; }
-
-@keyframes slideIn {
-    from {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
+.kelompok-card::before {
+    content: '🦠'; /* Simbol jamur seperti Cordyceps */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    color: #8B0000;
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
 .kelompok-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.7);
+}
+
+.kelompok-card:hover::before {
+    opacity: 1;
+}
+
+.kelompok-card:active {
+    transform: scale(0.98) translateY(5px);
+    transition: transform 0.1s ease;
 }
 
 .card-img img {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    transition: transform 0.3s;
-}
-
-.kelompok-card:hover .card-img img {
-    transform: scale(1.1);
 }
 
 .card-info {
     padding: 1rem;
-    text-align: center;
 }
 
 .card-info h3 {
-    font-size: 1.2rem;
     margin-bottom: 0.5rem;
+    color: #8B0000;
+    font-size: 1rem;
 }
 
-/* Laporan Section */
+.card-info p {
+    color: #D2B48C;
+    font-size: 0.6rem;
+}
+
+/* Content Wrapper untuk Laporan */
+.content-wrapper {
+    margin-bottom: 2rem;
+}
+
 .pdf-container {
-    height: 500px;
+    width: 100%;
+    height: 600px;
+    border: 2px solid #8B0000;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    animation: zoomIn 1s ease-out;
-}
-
-@keyframes zoomIn {
-    from {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
 }
 
 .content-desc {
     text-align: center;
-    margin-top: 2rem;
 }
 
-/* Video Section */
+.content-desc p {
+    font-size: 0.7rem;
+    margin-bottom: 1rem;
+}
+
+.content-desc .btn-cek {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: #556B2F;
+    color: #D2B48C;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.3s;
+    border: 2px solid #8B0000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.content-desc .btn-cek:hover {
+    background: #8B4513;
+    transform: translateY(-3px);
+}
+
+.content-desc .btn-cek:active {
+    transform: scale(0.95) translateY(2px);
+    transition: transform 0.1s ease;
+}
+
+/* Video Wrapper */
 .video-wrapper {
-    display: flex;
-    justify-content: center;
+    margin-bottom: 2rem;
 }
 
 .video-container {
     width: 100%;
-    max-width: 800px;
-    height: 450px;
+    height: 400px;
+    border: 2px solid #8B0000;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    animation: fadeInScale 1s ease-out;
-}
-
-@keyframes fadeInScale {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
 }
 
 .video-desc {
     text-align: center;
-    margin-top: 2rem;
+}
+
+.video-desc p {
+    font-size: 0.7rem;
 }
 
 /* Footer */
 footer {
-    background: #000; /* Hitam Batman */
-    color: #fff;
     text-align: center;
-    padding: 1rem;
-    animation: slideUp 1s ease-out;
-}
-
-@keyframes slideUp {
-    from {
-        transform: translateY(100%);
-    }
-    to {
-        transform: translateY(0);
-    }
+    padding: 2rem;
+    background: #2F4F4F;
+    color: #D2B48C;
+    margin-top: 2rem;
+    border-top: 5px solid #8B0000;
+    font-size: 0.6rem;
 }
 
 /* Responsivitas */
@@ -360,15 +386,33 @@ footer {
         margin-left: 1rem;
     }
 
-    .hero-kelompok h1 {
-        font-size: 2rem;
+    .hero-kelompok {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 8rem;
     }
 
     .kelompok-grid {
         grid-template-columns: 1fr;
     }
 
-    .section-container {
-        padding: 2rem 1rem;
+    .logo {
+        font-size: 1rem;
+    }
+
+    .hero-overlay h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-overlay p {
+        font-size: 0.6rem;
+    }
+
+    .pdf-container {
+        height: 400px;
+    }
+
+    .video-container {
+        height: 300px;
     }
 }
