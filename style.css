@@ -1,14 +1,12 @@
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Stardos+Stencil:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+/* Import Font Google yang bergaya klasik/magis */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap');
 
 :root {
-    --army-green: #4B5320;
-    --dark-olive: #353b16;
-    --war-gray: #2f2f2f;
-    --old-paper: #d2b48c;
-    --vintage-white: #f5f5dc;
-    --steel: #777b7e;
-    --blood-red: #8b0000;
+    --hogwarts-gold: #cfa84a;
+    --hogwarts-red: #740001;
+    --dark-magic: #1a1714;
+    --parchment: #f4e4bc;
+    --text-color: #3d2b1f;
 }
 
 * {
@@ -18,168 +16,255 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--vintage-white);
-    color: var(--war-gray);
+    font-family: 'Crimson Text', serif;
+    background-color: var(--dark-magic);
+    color: var(--parchment);
     line-height: 1.6;
 }
 
-/* --- Navigasi --- */
+/* --- Navigation --- */
 header {
-    background: var(--army-green);
-    padding: 1rem 5%;
+    background: rgba(26, 23, 20, 0.95);
+    border-bottom: 3px double var(--hogwarts-gold);
+    padding: 1rem 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 4px solid var(--dark-olive);
 }
 
 nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .logo {
-    font-family: 'Stardos Stencil', cursive;
+    font-family: 'Cinzel', serif;
     font-size: 1.8rem;
-    color: var(--vintage-white);
+    color: var(--hogwarts-gold);
+    text-transform: uppercase;
     letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(207, 168, 74, 0.5);
 }
 
 .logo span {
-    color: var(--old-paper);
+    color: #fff;
 }
 
 .nav-links {
-    list-style: none;
     display: flex;
+    list-style: none;
 }
 
-.nav-links li {
-    margin-left: 20px;
-}
-
-.nav-links a {
+.nav-links li a {
     text-decoration: none;
-    color: var(--vintage-white);
-    font-weight: 600;
-    text-transform: uppercase;
+    color: var(--parchment);
+    margin: 0 15px;
+    font-family: 'Cinzel', serif;
     font-size: 0.9rem;
     transition: 0.3s;
 }
 
-.nav-links a:hover {
-    color: var(--old-paper);
+.nav-links li a:hover {
+    color: var(--hogwarts-gold);
+    text-shadow: 0 0 8px var(--hogwarts-gold);
 }
 
 /* --- Hero Section --- */
 .hero-kelompok {
     height: 80vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                url('https://images.unsplash.com/photo-1505245200360-16da94065688?q=80&w=2070&auto=format&fit=crop'); /* Gambar bertema vintage/war */
-    background-size: cover;
-    background-position: center;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                url('https://images.unsplash.com/photo-1551269901-5c5e14c25df7?q=80&w=2070') no-repeat center center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: white;
+    border-bottom: 5px solid var(--hogwarts-gold);
 }
 
 .hero-overlay h1 {
-    font-family: 'Stardos Stencil', cursive;
+    font-family: 'Cinzel', serif;
     font-size: 4rem;
+    color: var(--hogwarts-gold);
     margin-bottom: 10px;
-    text-shadow: 3px 3px 5px black;
+}
+
+.hero-overlay p {
+    font-size: 1.2rem;
+    font-style: italic;
 }
 
 .btn-cek {
     display: inline-block;
     padding: 12px 30px;
-    background: var(--blood-red);
-    color: white;
+    background: var(--hogwarts-red);
+    color: var(--hogwarts-gold);
     text-decoration: none;
+    border: 2px solid var(--hogwarts-gold);
+    font-family: 'Cinzel', serif;
     font-weight: bold;
-    border-radius: 5px;
-    box-shadow: 3px 3px 0px #4d0000;
-    transition: 0.2s;
-    text-transform: uppercase;
+    margin-top: 20px;
+    transition: 0.4s;
+    cursor: pointer;
 }
 
 .btn-cek:hover {
-    transform: translateY(2px);
-    box-shadow: 1px 1px 0px #4d0000;
-    background: #a50000;
+    background: var(--hogwarts-gold);
+    color: var(--hogwarts-red);
+    box-shadow: 0 0 20px var(--hogwarts-gold);
 }
 
-/* --- Anggota Grid --- */
+/* --- Member Cards --- */
 .section-container {
-    padding: 80px 10%;
-    text-align: center;
+    padding: 60px 20px;
 }
 
 .section-title {
-    font-family: 'Stardos Stencil', cursive;
+    text-align: center;
+    font-family: 'Cinzel', serif;
     font-size: 2.5rem;
+    color: var(--hogwarts-gold);
     margin-bottom: 40px;
-    color: var(--army-green);
-    border-bottom: 2px solid var(--army-green);
-    display: inline-block;
+    text-decoration: underline;
 }
 
 .kelompok-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .kelompok-card {
-    background: var(--old-paper);
-    padding: 15px;
+    background: var(--parchment);
+    border: 5px double var(--text-color);
+    border-radius: 5px;
+    overflow: hidden;
     text-decoration: none;
-    color: var(--war-gray);
-    border: 2px solid var(--army-green);
-    transition: 0.3s;
-    transform: rotate(-1deg); /* Efek kertas foto lama */
-}
-
-.kelompok-card:nth-child(even) {
-    transform: rotate(1.5deg);
+    transition: transform 0.3s;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
 }
 
 .kelompok-card:hover {
-    transform: scale(1.05) rotate(0deg);
-    z-index: 10;
-    box-shadow: 10px 10px 20px rgba(0,0,0,0.3);
+    transform: translateY(-10px) rotate(1deg);
 }
 
 .card-img img {
     width: 100%;
     height: 250px;
     object-fit: cover;
-    filter: sepia(0.6) contrast(1.2); /* Efek foto jadul */
+    filter: sepia(40%) contrast(110%);
+    border-bottom: 2px solid var(--text-color);
+}
+
+.card-info {
+    padding: 15px;
+    text-align: center;
+    color: var(--text-color);
 }
 
 .card-info h3 {
-    margin-top: 15px;
-    font-family: 'Special Elite', cursive;
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
 }
 
-/* --- Konten Laporan & Video --- */
+/* Container Utama untuk Makalah & Video */
+.content-wrapper, .video-wrapper {
+    max-width: 900px; /* Diperlebar sedikit agar lebih lega */
+    margin: 30px auto;
+    padding: 10px;
+    background: #1a1714; /* Warna gelap Hogwarts */
+    border: 5px ridge var(--hogwarts-gold);
+    box-shadow: 0 0 30px rgba(207, 168, 74, 0.3);
+    border-radius: 8px;
+}
+
+/* Teknik Agar Iframe Responsif & Tidak Hitam */
 .pdf-container, .video-container {
-    border: 10px solid var(--army-green);
+    position: relative;
+    width: 100%;
+    /* Rasio 16:9 untuk video, atau 4:3 untuk dokumen */
+    aspect-ratio: 16 / 9; 
+    overflow: hidden;
     background: #000;
-    height: 500px;
-    margin-bottom: 20px;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
 }
 
+/* Mengatur Iframe agar memenuhi kotak */
+.pdf-container iframe, 
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Khusus untuk Makalah (PDF) biasanya lebih bagus agak tinggi */
+.pdf-container {
+    aspect-ratio: 4 / 5; /* Membuatnya lebih tegak seperti kertas */
+}
+
+/* Deskripsi di bawahnya */
+.content-desc, .video-desc {
+    padding: 20px;
+    background: var(--parchment);
+    color: var(--text-color);
+    border-radius: 0 0 5px 5px;
+    margin-top: -5px; /* Menempelkan dengan bingkai atas */
+    border: 2px solid var(--hogwarts-gold);
+    font-style: italic;
+}
 /* --- Footer --- */
 footer {
-    background: var(--war-gray);
-    color: var(--old-paper);
     text-align: center;
-    padding: 20px;
-    font-family: 'Special Elite', cursive;
+    padding: 40px;
+    background: #0d0c0b;
+    border-top: 2px solid var(--hogwarts-gold);
+    font-family: 'Cinzel', serif;
+    color: var(--hogwarts-gold);
+}
+
+/* Animasi sederhana agar terasa 'magis' */
+@keyframes glow {
+    from { text-shadow: 0 0 5px var(--hogwarts-gold); }
+    to { text-shadow: 0 0 20px var(--hogwarts-gold), 0 0 30px #fff; }
+}
+
+.hero-overlay h1 {
+    animation: glow 2s ease-in-out infinite alternate;
+}
+.card-img {
+    overflow: hidden;
+    background: #000;
+}
+
+.card-img img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    filter: sepia(60%) contrast(120%) brightness(0.8);
+    transition: all 1.5s ease-in-out;
+}
+
+.kelompok-card:hover .card-img img {
+    filter: sepia(0%) contrast(100%) brightness(1);
+    transform: scale(1.1); /* Efek seolah foto menjadi hidup saat dilihat */
+}
+.section-title {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: aparecium 2s forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes aparecium {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        text-shadow: 0 0 15px var(--hogwarts-gold);
+    }
 }
